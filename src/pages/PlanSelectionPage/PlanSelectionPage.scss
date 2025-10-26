@@ -1,0 +1,178 @@
+$color-active: #4f4fff; // Azul para el paso activo
+$color-inactive: #7981b2; // Gris para pasos inactivos
+$color-stepper-bg: #edeffc;
+$color-text: #141938;
+
+.plan-selection-page {
+  max-width: 928px;
+  margin: auto;
+  background-color: #f8f9ff; // Fondo muy claro para la página
+  padding-bottom: 40px;
+
+  @media (max-width: 768px) {
+    padding: 0 24px;
+  }
+
+  &__plans-grid {
+    display: grid;
+    gap: 32px;
+
+    @media (min-width: 768px) {
+      max-width: 928px;
+      margin: auto;
+      grid-template-columns: repeat(3, 1fr); // Tres columnas en desktop
+      padding-top: 25px;
+    }
+
+    @media (max-width: 425px) {
+      display: flex;
+      // Cambiamos el contenedor a Flexbox para que los elementos fluyan horizontalmente
+      flex-direction: row;
+      gap: 16px;
+      padding-bottom: 80px;
+      // Habilitamos el scroll horizontal y ocultamos la barra de desplazamiento
+      overflow-x: scroll;
+      overflow-y: hidden;
+
+      // Evita que los ítems se envuelvan (wrapping) a la siguiente línea
+      flex-wrap: nowrap;
+
+      // Eliminar la barra de scroll nativa (solo estético)
+      -webkit-overflow-scrolling: touch; /* Mejora la experiencia en iOS */
+      &::-webkit-scrollbar {
+        display: none; /* Oculta la barra de scroll en Webkit (Chrome/Safari) */
+      }
+    }
+  }
+
+  &__main {
+    max-width: 544px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  &__main-content {
+    max-width: 544px;
+    margin: 0 auto;
+    padding: 0;
+
+    @media (max-width: 768px) {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: $color-text;
+    text-align: center;
+
+    @media (max-width: 425px) {
+      font-size: 28px;
+      text-align: left;
+    }
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: $color-text;
+    text-align: center;
+    margin-bottom: 2rem;
+    @media (max-width: 425px) {
+      text-align: left;
+    }
+  }
+
+  &__options-grid {
+    // Dos columnas para las tarjetas
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr); // Dos tarjetas en desktop
+    }
+  }
+}
+
+// =======================================
+// ESTILOS DEL STEPPER (Indicador de pasos)
+// =======================================
+.stepper {
+  background-color: $color-stepper-bg;
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    // Ocultar el stepper en móvil si no hay espacio, o simplificarlo
+    // display: none;
+  }
+
+  @media (max-width: 425px) {
+    background-color: transparent;
+    margin: 0;
+    padding: 1rem 0 1.5rem;
+  }
+
+  &__path {
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  &__item {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid $color-inactive;
+    // background-color: $color-inactive;
+    color: $color-inactive;
+    text-align: center;
+    line-height: 24px;
+    font-size: 0.8rem;
+    z-index: 10;
+
+    &--active {
+      background-color: $color-active;
+      color: white;
+      border: 1px solid $color-active;
+    }
+  }
+
+  &__label {
+    font-size: 0.9rem;
+    margin: 0 1rem;
+    font-weight: 700;
+    color: $color-text;
+
+    @media (max-width: 425px) {
+      width: min-content;
+    }
+
+    @media (max-width: 320px) {
+      margin: 0 0.5rem;
+    }
+
+    &--inactive {
+      font-weight: 400;
+      color: $color-inactive;
+    }
+  }
+
+  &__line {
+    width: 32px;
+    height: 1px;
+    border-bottom: dotted $color-active;
+    z-index: 5;
+    margin-right: 16px;
+
+    @media (max-width: 320px) {
+      margin-right: 8px;
+    }
+  }
+}

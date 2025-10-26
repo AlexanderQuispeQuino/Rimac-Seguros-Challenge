@@ -1,0 +1,37 @@
+// 1. Regular (Peso normal, 400)
+@font-face {
+  font-family: "BRSonoma";
+  src: url("../assets/fonts/BRSonoma-Regular.otf") format("opentype");
+  font-weight: 400; // Normal
+  font-style: normal;
+  font-display: swap; // Buena práctica para mejorar la carga
+}
+
+// 2. Medium (Peso 500)
+@font-face {
+  font-family: "BRSonoma";
+  src: url("../assets/fonts/BRSonoma-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+// 3. SemiBold (Peso 600)
+@font-face {
+  font-family: "BRSonoma";
+  src: url("../assets/fonts/BRSonoma-Bold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+// 4. Bold (Peso 700)
+@font-face {
+  font-family: "BRSonoma";
+  src: url("../assets/fonts/BRSonoma-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Debes repetir esta estructura para todos los demás pesos (Thin, Light, SemiBold, Black).

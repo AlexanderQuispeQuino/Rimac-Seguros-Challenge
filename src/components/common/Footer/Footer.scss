@@ -1,0 +1,58 @@
+// Definimos una variable para el color de fondo oscuro del footer
+$footer-bg: #03050f;
+$footer-text-color: #ffffff;
+$footer-line: #2b304e;
+
+.footer {
+  // HTML Semántico: Usar la etiqueta <footer>
+  background-color: $footer-bg;
+  padding: 32px 120px;
+
+  &__content {
+    max-width: 1111px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  &__logo {
+    // Estilo para el contenedor del logo
+    img {
+      height: 42px; // Ajusta el tamaño del logo si es necesario
+      width: 85.39px;
+    }
+  }
+
+  &__copyright {
+    font-size: 14px;
+    color: $footer-text-color;
+    margin: 0;
+
+    @media (max-width: 425px) {
+      border-top: 1px solid $footer-line;
+      padding: 2rem 0rem 1rem;
+      width: 100%;
+    }
+  }
+
+  // Diseño Responsive para móvil
+  @media (max-width: 768px) {
+    padding: 3.1rem 24px;
+
+    &__content {
+      // Stack en móvil: columna
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &__logo {
+      margin-bottom: 2rem; // Espacio entre logo y copyright en móvil
+    }
+  }
+
+  @media (max-width: 425px) {
+    padding: 2rem 24px;
+  }
+}

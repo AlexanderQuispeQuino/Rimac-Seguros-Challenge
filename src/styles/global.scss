@@ -1,0 +1,25 @@
+// Variables de tema
+$background-theme: #f8f9ff;
+
+:root {
+  font-family: "BRSonoma", sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $background-theme;
+}
+
+h1,
+h2,
+h3,
+button,
+input,
+select {
+  font-family: "BRSonoma", sans-serif;
+  font-weight: 500;
+}

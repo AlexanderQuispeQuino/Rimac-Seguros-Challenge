@@ -1,0 +1,103 @@
+// Variables de color
+$color-primary: #00f4e2; // Color cian/verde brillante
+$color-selected-border: #389e0d; // Color para el checkmark y borde del check (VERDE)
+$color-icon-bg: #f0f5ff; // Fondo claro para el ícono
+$color-text: #141938; // Color principal de texto y borde seleccionado (AZUL OSCURO)
+$color-white: white; // color blanco
+
+.quote-option-card {
+  // Estilo base de la tarjeta
+  background-color: $color-white;
+  border-radius: 24px;
+  border: 3px solid $color-white;
+  padding: 16px 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative; // Asegurar que cualquier elemento absoluto se posicione correctamente
+  box-shadow: 0px 1px 32px rgba(174, 172, 243, 0.3490196078);
+
+  // Modificador de selección
+  &--selected {
+    // El borde de la tarjeta cambia al color del texto ($color-text)
+    border: 3px solid $color-text;
+  }
+
+  &__header {
+    display: grid;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+
+    @media (max-width: 425px) {
+      grid-template-columns: auto 1fr;
+    }
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 425px) {
+      transform: scale(0.6667);
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__checkmark {
+    // Estilo base del círculo
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #a9afd9;
+    background-color: #ffffff;
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 24px;
+
+    // Ocultar el contenido por defecto
+    &::before {
+      content: none;
+    }
+
+    // Reglas aplicadas cuando la tarjeta está seleccionada
+    .quote-option-card--selected & {
+      // Rellenar el círculo con el color seleccionado
+      border-color: $color-selected-border;
+      background-color: $color-selected-border;
+
+      // INYECTAR EL CHECKMARK USANDO EL PSEUDO-ELEMENTO
+      &::before {
+        content: "✓"; // Carácter Unicode para la marca de verificación
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        // Centrar perfectamente el contenido
+        transform: translate(-50%, -50%);
+        color: #ffffff;
+        font-size: 1rem;
+        line-height: 1;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    color: $color-text;
+    margin: 0;
+  }
+
+  &__subtitle {
+    font-size: 12.9px;
+    font-weight: 400;
+    color: $color-text;
+    line-height: 20px;
+  }
+}

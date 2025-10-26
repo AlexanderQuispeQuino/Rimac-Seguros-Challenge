@@ -1,0 +1,31 @@
+$background-button: #4f4fff;
+
+.back-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: $background-button;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  grid-gap: 8px;
+
+  @media (max-width: 550px) {
+    margin: 0;
+    transform: scale(1.2);
+    // filter: opacity(0.5);
+
+    &__text {
+      display: none;
+    }
+  }
+  // NUEVA CLASE: Para ocultar completamente la instancia del botón
+  &--hide-mobile {
+    @media (max-width: 550px) {
+      display: none !important; /* Usamos !important para asegurar que sobrescribe cualquier otro display */
+    }
+  }
+}

@@ -1,0 +1,206 @@
+// Variables
+$color-text-gray: #03050f;
+$input-text-color: #5e6488;
+$color-border: #c5c5c5;
+$color-error: #ff5a5f;
+
+.cotizacion-form {
+  max-width: 352px;
+
+  @media (max-width: 500px) {
+    max-width: 100%; // Ocupar todo el ancho en móvil
+  }
+
+  &__header {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  &__tag {
+    height: fit-content;
+    width: fit-content;
+    color: $color-text-gray;
+    padding: 4px 8px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #00f4e2 0%, #00ff7f 100%);
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    margin: 0px;
+    color: $color-text-gray;
+  }
+
+  &__subtitle {
+    color: $color-text-gray;
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+  }
+
+  // Formulario y Campos
+  &__input-group {
+    border: 1px solid $input-text-color;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-top: 16px;
+
+    &.is-error {
+      border: 1.5px solid $color-error; /* red-500 */
+    }
+  }
+
+  // Estilo especial para el input group DNI/CE
+  &__input-group--doc {
+    display: flex;
+    border: 1px solid $input-text-color;
+    border-radius: 8px;
+    padding: 0;
+
+    .cotizacion-form__select-container {
+      flex-shrink: 0; // Evita que se encoja
+      width: 139px;
+      border-right: 1px solid $input-text-color;
+      border-radius: 8px 0 0 8px;
+
+      &.is-error {
+        border-right: 1.5px solid $color-error;
+      }
+
+      @media (max-width: 320px) {
+        width: 109px; // Ocupar todo el ancho en móvil
+      }
+    }
+
+    .cotizacion-form__select {
+      width: 100%;
+      padding: 19.5px 16px;
+      border: none;
+      font-size: 1rem;
+      background-color: transparent; // Para que tome el fondo del contenedor
+      outline: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: url("../../assets/icons/icon-down.svg");
+      background-repeat: no-repeat;
+      background-position: 100px center;
+      color: $color-text-gray;
+    }
+
+    .cotizacion-form__input--doc {
+      // flex: 1;
+      border: none;
+      outline: none;
+    }
+  }
+
+  // Input normal (Celular)
+  &__label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 0;
+    color: $input-text-color;
+  }
+
+  .cotizacion-form__input {
+    width: 100%;
+    border: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    background: none;
+    padding: 0;
+
+    &[type="number"]::-webkit-inner-spin-button,
+    &[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none; // Desactiva la apariencia nativa
+      margin: 0; // Remueve cualquier margen que pueda quedar
+    }
+    // El input de celular necesita su propio borde
+    &:not(.cotizacion-form__input--doc) {
+      width: 100%;
+      font-size: 1rem;
+      padding: 0;
+    }
+
+    // El input de celular necesita su propio borde
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  // Checkboxes
+  &__checkbox-container {
+    margin: 24px 0;
+  }
+
+  &__label-check {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 6px 0;
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin: 0 12px 0 0;
+      cursor: pointer;
+      accent-color: $color-text-gray;
+    }
+  }
+
+  &__terms {
+    font-size: 12px;
+    font-weight: 600;
+    padding-top: 6px;
+    margin: 0;
+
+    a {
+      color: $color-text-gray;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid $color-text-gray;
+    }
+  }
+
+  // Botón
+  &__button {
+    background-color: $color-text-gray;
+    color: #ffffff;
+    padding: 20px 40px;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+
+    @media (max-width: 550px) {
+      width: 100%; // Ocupar todo el ancho en móvil
+      font-size: 18px;
+      padding: 18px 40px;
+      margin-top: 16px;
+    }
+  }
+
+  // Mensajes de Error (Manejo de estado)
+  &__error-message {
+    color: $color-error;
+    font-size: 0.75rem;
+    margin: 0.2rem 0 0.5rem;
+    height: auto; /* 🔑 CLAVE: Altura cero cuando está oculto */
+
+    transition: height 3s ease-in-out;
+  }
+}
+
+.custom-input {
+  border: 0 !important;
+  margin: 0 !important;
+}

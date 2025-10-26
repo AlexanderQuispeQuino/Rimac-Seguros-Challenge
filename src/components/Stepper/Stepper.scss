@@ -1,0 +1,147 @@
+// ==========================================================
+// CONFIGURACIÓN DE VISIBILIDAD RESPONSIVA (Punto Clave)
+// ==========================================================
+// Ocultar el stepper de escritorio en pantallas pequeñas (Mobile First)
+.stepper--desktop {
+  display: none;
+}
+
+// Ocultar la barra de progreso móvil en pantallas grandes
+@media (min-width: 768px) {
+  .stepper--desktop {
+    display: block; // Muestra el stepper completo en desktop (o flex, según diseño)
+  }
+
+  .stepper--mobile {
+    display: none !important; // Oculta la barra de progreso en desktop
+  }
+}
+
+/* ========================================= */
+/* ESTILOS PARA LA VERSIÓN MOBILE (.stepper--mobile) */
+/* ========================================= */
+
+.stepper--mobile {
+  display: flex;
+  align-items: center; /* Centra verticalmente el texto y la barra */
+  gap: 15px; /* Espacio entre el texto y la barra */
+  padding: 18px 20px; /* Espaciado interno */
+  background-color: #f7f9fc; /* Un color de fondo suave, si lo necesitas */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  box-sizing: border-box; /* Para incluir padding en el ancho */
+
+  @media (max-width: 425px) {
+    border-bottom: 1px solid #d7dbf5;
+  }
+  /* Renombramos el selector de base para usar el nuevo del componente React */
+  .header__step-indicator {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 20px;
+    background-color: #f7f9fc;
+    width: 100%;
+    box-sizing: border-box;
+
+    @media (max-width: 425px) {
+      border-bottom: 1px solid #d7dbf5;
+    }
+  }
+
+  .header__step-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: #141938;
+    margin: 0;
+    flex-shrink: 0;
+    text-transform: uppercase;
+  }
+
+  .header__progress-bar-container {
+    flex-grow: 1;
+    height: 6px;
+    background-color: #d7dbf5;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .header__progress-bar-fill {
+    height: 100%;
+    background-color: #4f4fff;
+    border-radius: 3px;
+    transition: width 0.3s ease-in-out;
+  }
+
+  .header__progress-dot {
+    position: absolute;
+    top: 50%;
+    transform: translate(-65%, -50%);
+    width: 14px;
+    height: 14px;
+    background-color: #4f4fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(123, 97, 255, 0.3);
+    transition: left 0.3s ease-in-out;
+  }
+}
+
+/* ========================================= */
+/* ESTILOS DE ESCRITORIO (.stepper--desktop) */
+/* ========================================= */
+
+.stepper--desktop {
+  .stepper {
+    background-color: #edeffc;
+    padding: 16px 0;
+    margin-bottom: 2rem;
+  }
+
+  .stepper__path {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px !important; // Mejor evitar !important si es posible, pero se mantiene si es necesario
+  }
+
+  .stepper__item {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    color: #7981b2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid #7981b2;
+  }
+
+  .stepper__item--active {
+    border: 1px solid #4f4fff;
+    background-color: #4f4fff;
+    color: white;
+  }
+
+  .stepper__label {
+    font-size: 16px;
+    color: #7981b2;
+    margin: 0;
+    font-weight: 700;
+
+    &--active {
+      color: #141938;
+    }
+  }
+
+  .stepper__label--inactive {
+    color: #7981b2;
+    font-weight: 700;
+  }
+
+  .stepper__line {
+    width: 40px;
+    height: 1px;
+    border-bottom: dotted #4f4fff;
+    margin: 0 5px;
+  }
+}

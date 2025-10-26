@@ -1,0 +1,68 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0px;
+  max-width: 1111px;
+  margin: auto;
+  background-color: #f8f9ff; // Por defecto para el Home Page
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  // Estilo de la flecha de volver (solo en la página de selección)
+  &__back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #000000;
+    margin-right: 1rem;
+  }
+
+  // Elementos del Contacto (Home Page)
+  &__contact-info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__contact-text {
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 16px;
+    color: #03050f;
+  }
+
+  &__contact-phone {
+    display: flex;
+    font-size: 18px;
+    font-weight: 700;
+    color: #03050f;
+
+    img {
+      width: 18px;
+      height: 18px;
+      margin-right: 8px;
+    }
+  }
+
+  // Elementos del Stepper (Plan Selection Page)
+  &__stepper-info {
+    // Estilo del paso, si es simple
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #4a4a4a;
+  }
+
+  @media (max-width: 768px) {
+    // Adaptación para móvil
+    padding: 0 24px;
+
+    &__contact-text {
+      // Ocultar texto "¡Compra por este medio!" en móvil para ahorrar espacio
+      display: none;
+    }
+  }
+}

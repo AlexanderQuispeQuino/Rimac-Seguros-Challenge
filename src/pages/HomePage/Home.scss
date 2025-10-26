@@ -1,0 +1,147 @@
+.home-page {
+  background-color: #f8f9ff; // Color de fondo general (gris muy claro)
+
+  &__main {
+    // El contenedor principal (excluyendo el Header que es absoluto)
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "section-image section-title"
+      "section-image section-form";
+    gap: 16px 0;
+    max-width: 1111px;
+    margin: 0 auto;
+    align-items: start;
+
+    @media (max-width: 550px) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        " section-title section-image"
+        "section-form section-form";
+      grid-gap: 10px;
+      align-items: center;
+    }
+
+    //  --- PSEUDO-ELEMENTO :BEFORE (Ej. Esquina Superior Izquierda) ---
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: unset;
+      left: 0;
+      width: 412px;
+      height: 768px;
+      background-image: url("../../assets/images/molecule-blur-left.svg");
+      background-repeat: no-repeat;
+    }
+
+    // --- PSEUDO-ELEMENTO :AFTER (Ej. Esquina Superior Derecha) ---
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: unset;
+      width: 369px;
+      height: 768px;
+      background-image: url("../../assets/images/molecule-blur-right.svg");
+      background-repeat: no-repeat;
+    }
+
+    @media (min-width: 768px) {
+      padding: 32px 0 100px;
+    }
+
+    @media (max-width: 550px) {
+      padding: 65px 24px 80px;
+      position: relative;
+      //  --- PSEUDO-ELEMENTO :BEFORE (Ej. Esquina Superior Izquierda) ---
+      &::before {
+        content: "";
+        width: 238px;
+        height: 304px;
+        top: unset;
+        bottom: 0;
+        background-image: url("../../assets/images/molecule-blur-left.svg");
+        background-repeat: no-repeat;
+      }
+
+      // --- PSEUDO-ELEMENTO :AFTER (Ej. Esquina Superior Derecha) ---
+      &::after {
+        top: 0;
+        width: 285px;
+        height: 304px;
+        background-image: url("../../assets/images/molecule-blur-right-mobile.svg");
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &__image-section {
+    // Lado izquierdo: Imagen y fondo degradado
+    position: relative;
+    grid-area: section-image;
+    z-index: 1;
+
+    img {
+      width: 480px;
+      height: 560px;
+      object-fit: cover;
+
+      @media (max-width: 550px) {
+        width: 136px;
+        height: 160px;
+      }
+    }
+  }
+
+  &__content-section {
+    // Lado derecho: El formulario
+    max-width: 352px;
+    grid-area: section-title;
+    display: grid;
+    align-content: center;
+    grid-gap: 16px;
+    height: fit-content;
+    z-index: 1;
+
+    @media (min-width: 992px) {
+      // Padding más generoso en escritorio
+      padding: 0 0 0 50px;
+    }
+
+    @media (max-width: 550px) {
+      z-index: 1;
+    }
+  }
+
+  &__content-section-form {
+    grid-area: section-form;
+    padding-left: 50px;
+    z-index: 1;
+
+    @media (max-width: 550px) {
+      padding: 25px 0 0;
+      margin-top: 15px;
+      border-top: 1px solid #ccd1ee;
+      z-index: 1;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .home-page header {
+    position: absolute;
+    width: -webkit-fill-available;
+    z-index: 1;
+    background: transparent;
+  }
+}
+
+@media (max-width: 375px) {
+  .cotizacion-form__title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
