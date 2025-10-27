@@ -48,7 +48,7 @@ Flujo Completo: La aplicación gestiona la transición de la página de inicio, 
 
 La aplicación sigue una estructura modular para garantizar la escalabilidad:
 
-src/
+```src/
 ├── assets/ # -> Imágenes, Íconos y Fuentes (BRSonoma)
 ├── components/ # -> Componentes reutilizables e independientes
 │ ├── common/ # -> Componentes de UI genéricos (Ej. Footer, Header, Stepper)
@@ -73,6 +73,7 @@ src/
 │ └── app-types.tsx
 └── utils/ # -> Funciones de utilidad y helpers.
 └── ageUtils.tsx # -> Funciones relacionadas con el cálculo de la edad.
+```
 
 ▶️ Instrucciones de Ejecución
 
